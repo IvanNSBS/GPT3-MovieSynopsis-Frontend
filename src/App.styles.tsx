@@ -22,4 +22,15 @@ const Output = styled.div`
     font-size: 1.5em;
 `;
 
-export { AppContainer, LabelField, Output }
+const TabsWrapper = styled.div`
+width: 100%;
+    padding-bottom: 20px;
+    display: flex;
+    align-items: flex-start;
+`
+
+const TabButton = styled.button`
+
+`
+
+export { AppContainer, LabelField, Output, TabsWrapper, TabButton }

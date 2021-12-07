@@ -1,7 +1,13 @@
 import React, { useEffect, useState } from "react";
-import { AppContainer, LabelField, Output } from './App.styles';
 import LoadingScreen from './Loading';
 import { SpecificGenerator } from "./GeneratorFetch";
+
+import {
+  AppContainer,
+  LabelField,
+  Output,
+} from './App.styles';
+import AppTabs from "./AppTabs";
 
 const App: React.FC = function ()
 {
@@ -46,14 +52,10 @@ const App: React.FC = function ()
   
   return (
     <AppContainer>
-      <div>
-        <button>Comedy</button>         
-        <button>Horror</button>         
-        <button>General</button>         
-      </div>
       
       <div>
-    
+        <AppTabs/>
+        
         <LabelField>
           <label htmlFor='input-prompt'>Title</label>
           <input name='input-prompt' type='text' value={prompt} onChange={ e => setPrompt(e.target.value) }/>
