@@ -36,3 +36,4 @@ const AppTabs: React.FC<{onClick(model:string):void, toggleTags(value: boolean):
 }
 
 export default AppTabs;
+export { tabsModel }

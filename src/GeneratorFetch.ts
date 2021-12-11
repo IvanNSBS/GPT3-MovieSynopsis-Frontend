@@ -1,4 +1,5 @@
 import axios, { AxiosError } from 'axios';
+import { tabsModel } from './AppTabs'
 
 interface PostProps
 {
@@ -30,8 +31,24 @@ const SpecificGenerator = async function (props: GeneratorInterface)
     const temp = postProps.temperature;
     const title = postProps.title;
 
+    let prompt = title + ' ->';
+    if (props.model === tabsModel.general)
+    {
+        let tagList = '';
+        if (postProps.tags !== undefined)
+        { 
+            for (let i = 0; i < postProps.tags.length-2; i++)
+                tagList += postProps.tags[i] + ', ';
+            
+            tagList += postProps.tags[postProps.tags.length - 1] + ' ->';
+        }
+
+        prompt = `title=${title}, tags=${tagList}`
+        console.log("prompt: "+ prompt);
+    }
+
     let params = {
-        "prompt": title + ' ->',
+        "prompt": prompt,
         "model": props.model,
         "max_tokens": 200,
         "temperature": temp,
@@ -42,19 +59,20 @@ const SpecificGenerator = async function (props: GeneratorInterface)
         "stop": "+++"
     };
     
-    props.onStartGenerating();
-
-    await axios.post(url, params, { headers: { Authorization: props.apiKey}})
-    .then(res => {
-        console.log(res.data);
-        props.onGenerationComplete(res.data.choices[0].text);
-    })
-    .catch((e: AxiosError) => {
-        alert(e);
-        return "";
-    })
-
     return "";
+    // props.onStartGenerating();
+
+    // await axios.post(url, params, { headers: { Authorization: props.apiKey}})
+    // .then(res => {
+    //     console.log(res.data);
+    //     props.onGenerationComplete(res.data.choices[0].text);
+    // })
+    // .catch((e: AxiosError) => {
+    //     alert(e);
+    //     return "";
+    // })
+
+    // return "";
 }
 
 export { SpecificGenerator }
