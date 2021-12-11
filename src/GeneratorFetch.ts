@@ -4,7 +4,7 @@ interface PostProps
 {
     title: string,
     temperature: number,
-    tags: [string] | undefined;
+    tags: string[] | undefined;
 }
 
 interface GeneratorInterface

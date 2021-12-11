@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import Select from 'react-select';
+import { TagSelect } from './TagSelector.styles'
+
 
 const tags = [
     { value: 'flashback', label: 'Flashback'},
@@ -21,29 +23,29 @@ const tags = [
     { value: 'bleak', label: 'Bleak'}
 ];
 
-const TagSelector: React.FC<{setTags(value: [string]): void}> = function (props)
+const TagSelector: React.FC<{setTags(value: string[]): void}> = function (props)
 {
-    const [selected, setSelected] = useState<any>([]);
-    const handleChange = function(e: any){
-        setSelected(Array.isArray(e) ? e.map(x => x.value) : []);
-        console.log(selected);
+    const [selected, setSelected] = useState<string[]>([]);
+    const handleChange = function (e: any)
+    {
+        if (e.length <= 3)
+        {
+            const values:string[] = Array.isArray(e) ? e.map(x => x.value) : [];
+            setSelected(values);
+            props.setTags(values);
+        }
     }
 
     return (
-        <div className="App">
-            <Select
-                className="dropdown"
-                placeholder="Select Option"
-                value={tags.filter(obj => selected.includes(obj.value))} // set selected values
-                options={tags} // set list of the data
-                onChange={handleChange} // assign onChange function
-                isMulti
-                isClearable
-            />
-    
-            {selected && <div style={{ marginTop: 20, lineHeight: '25px' }}>
-            </div>}
-      </div>
+        <TagSelect
+            className="dropdown"
+            placeholder="Select Option"
+            value={tags.filter(obj => selected.includes(obj.value))} // set selected values
+            options={tags} // set list of the data
+            onChange={handleChange} // assign onChange function
+            isMulti
+            isClearable
+        />
     );
 }
 

@@ -18,7 +18,7 @@ const App: React.FC = function ()
   const [temp, setTemp] = useState<string>("1");
   const [prompt, setPrompt] = useState<string>("Once upon a time");
   const [showTags, setShowTags] = useState<boolean>(false);
-  const [tags, setTags] = useState<[string] | undefined>(undefined);
+  const [tags, setTags] = useState<string[] | undefined>(undefined);
 
   const [generating, setGenerating] = useState<number>(-1);
 
