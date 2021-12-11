@@ -4,8 +4,10 @@ import { SpecificGenerator } from "./GeneratorFetch";
 
 import {
   AppContainer,
+  InputLabel,
   LabelField,
   Output,
+  TitleInput,
 } from './App.styles';
 import AppTabs from "./AppTabs";
 import TagSelector from "./TagSelector";
@@ -61,18 +63,18 @@ const App: React.FC = function ()
         <AppTabs onClick={setModel} toggleTags={setShowTags}/>
         
         <LabelField>
-          <label htmlFor='input-prompt'>Title</label>
-          <input name='input-prompt' type='text' value={prompt} onChange={ e => setPrompt(e.target.value) }/>
+          <InputLabel htmlFor='input-prompt'>Title</InputLabel>
+          <TitleInput name='input-prompt' type='text' value={prompt} onChange={ e => setPrompt(e.target.value) }/>
         </LabelField>
         { showTags &&
           <LabelField>
-            <label htmlFor='tags'>Tags</label>
+            <InputLabel htmlFor='tags'>Tags</InputLabel>
             <TagSelector setTags={setTags}/>
           </LabelField>
         }
         <LabelField>
-          <label htmlFor='input-temp'>Temperature</label>
-          <input name='input-temp' type='range' min='0' max='1' step='0.01' onChange={e => setTemp(e.target.value)} />
+          <InputLabel htmlFor='input-temp'>Temperature</InputLabel>
+          <TitleInput name='input-temp' type='range' min='0' max='1' step='0.01' onChange={e => setTemp(e.target.value)} />
           <label>{ temp }</label>
         </LabelField>
     

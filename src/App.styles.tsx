@@ -10,12 +10,15 @@ const AppContainer = styled.div`
 `;
 
 const LabelField = styled.div`
-    display: grid;
-    grid-auto-flow: column;
-    grid-column-gap: 7px;
+    display: flex;
+    justify-content: space-between;
     font-size: 1.3em;
     padding-bottom: 8px;
 `;
+
+const InputLabel = styled.label`
+    margin-right: 25px;
+`
 
 const Output = styled.div`
     padding: 20px 5%;
@@ -23,14 +26,23 @@ const Output = styled.div`
 `;
 
 const TabsWrapper = styled.div`
-width: 100%;
+    width: 100%;
     padding-bottom: 20px;
     display: flex;
     align-items: flex-start;
+`
+
+const TitleInput = styled.input`
+    width: 340px;
+    max-width: 340px;
+    padding-left: 10px;
+    border: 1px solid #93999e;
+    border-radius: 4px;
+    height: 38px;
 `
 
 const TabButton = styled.button`
 
 `
 
-export { AppContainer, LabelField, Output, TabsWrapper, TabButton }
+export { AppContainer, LabelField, Output, TabsWrapper, TabButton, TitleInput, InputLabel }
