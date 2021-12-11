@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Select from 'react-select';
 import { TagSelect } from './TagSelector.styles'
 
 
@@ -28,9 +27,12 @@ const TagSelector: React.FC<{setTags(value: string[]): void}> = function (props)
     const [selected, setSelected] = useState<string[]>([]);
     const handleChange = function (e: any)
     {
+        console.log(e);
+
         if (e.length <= 3)
         {
-            const values:string[] = Array.isArray(e) ? e.map(x => x.value) : [];
+            const values: string[] = Array.isArray(e) ? e.map(x => x.value) : [];
+            console.log(values);
             setSelected(values);
             props.setTags(values);
         }

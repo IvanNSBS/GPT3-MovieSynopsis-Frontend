@@ -65,7 +65,7 @@ const App: React.FC = function ()
         <AppTabs onClick={setModel} toggleTags={setShowTags}/>
         
         <LabelField>
-          <InputLabel htmlFor='input-prompt'><a data-for="title" data-tip="Movie Title"> Title </a></InputLabel>
+          <InputLabel htmlFor='input-prompt' data-for="title" data-tip="Movie Title">Title</InputLabel>
           <ReactTooltip place="top" type="dark" effect="float" id="title"/>
           <TitleInput name='input-prompt' type='text' value={prompt} onChange={ e => setPrompt(e.target.value) }/>
         </LabelField>

@@ -35,9 +35,9 @@ const SpecificGenerator = async function (props: GeneratorInterface)
     if (props.model === tabsModel.general)
     {
         let tagList = '';
-        if (postProps.tags !== undefined)
+        if (postProps.tags !== undefined && postProps.tags.length > 0)
         { 
-            for (let i = 0; i < postProps.tags.length-2; i++)
+            for (let i = 0; i < postProps.tags.length-1; i++)
                 tagList += postProps.tags[i] + ', ';
             
             tagList += postProps.tags[postProps.tags.length - 1] + ' ->';
@@ -59,20 +59,20 @@ const SpecificGenerator = async function (props: GeneratorInterface)
         "stop": "+++"
     };
     
+    props.onStartGenerating();
+
+    await axios.post(url, params, { headers: { Authorization: props.apiKey}})
+    .then(res => {
+        console.log(res.data);
+        props.onGenerationComplete(res.data.choices[0].text);
+    })
+    .catch((e: AxiosError) => {
+        alert(e);
+        props.onGenerationComplete("");
+        return "";
+    })
+
     return "";
-    // props.onStartGenerating();
-
-    // await axios.post(url, params, { headers: { Authorization: props.apiKey}})
-    // .then(res => {
-    //     console.log(res.data);
-    //     props.onGenerationComplete(res.data.choices[0].text);
-    // })
-    // .catch((e: AxiosError) => {
-    //     alert(e);
-    //     return "";
-    // })
-
-    // return "";
 }
 
 export { SpecificGenerator }
