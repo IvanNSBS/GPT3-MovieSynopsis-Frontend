@@ -9,6 +9,8 @@ import {
   Output,
   TitleInput,
 } from './App.styles';
+
+import ReactTooltip from "react-tooltip";
 import AppTabs from "./AppTabs";
 import TagSelector from "./TagSelector";
 
@@ -63,7 +65,8 @@ const App: React.FC = function ()
         <AppTabs onClick={setModel} toggleTags={setShowTags}/>
         
         <LabelField>
-          <InputLabel htmlFor='input-prompt'>Title</InputLabel>
+          <InputLabel htmlFor='input-prompt'><a data-for="title" data-tip="Movie Title"> Title </a></InputLabel>
+          <ReactTooltip place="top" type="dark" effect="float" id="title"/>
           <TitleInput name='input-prompt' type='text' value={prompt} onChange={ e => setPrompt(e.target.value) }/>
         </LabelField>
         { showTags &&
