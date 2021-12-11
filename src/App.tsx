@@ -8,6 +8,7 @@ import {
   Output,
 } from './App.styles';
 import AppTabs from "./AppTabs";
+import TagSelector from "./TagSelector";
 
 const App: React.FC = function ()
 {
@@ -16,9 +17,12 @@ const App: React.FC = function ()
   
   const [temp, setTemp] = useState<string>("1");
   const [prompt, setPrompt] = useState<string>("Once upon a time");
+  const [showTags, setShowTags] = useState<boolean>(false);
+  const [tags, setTags] = useState<[string] | undefined>(undefined);
+
   const [generating, setGenerating] = useState<number>(-1);
 
-  const model = "babbage:ft-ufpe-2021-12-04-17-04-13";
+  const [model, setModel] = useState<string>("babbage:ft-ufpe-2021-12-04-17-04-13");
 
   const post = async function()
   {
@@ -29,7 +33,7 @@ const App: React.FC = function ()
       postProps: {
         title: prompt,
         temperature: parseFloat(temp),
-        tags: undefined
+        tags: showTags ? tags : undefined
       },
       onStartGenerating: () => setGenerating(1),
       onGenerationComplete: (txt: string) => { setToken(txt); setGenerating(0); }
@@ -54,12 +58,18 @@ const App: React.FC = function ()
     <AppContainer>
       
       <div>
-        <AppTabs/>
+        <AppTabs onClick={setModel} toggleTags={setShowTags}/>
         
         <LabelField>
           <label htmlFor='input-prompt'>Title</label>
           <input name='input-prompt' type='text' value={prompt} onChange={ e => setPrompt(e.target.value) }/>
         </LabelField>
+        { showTags &&
+          <LabelField>
+            <label htmlFor='tags'>Tags</label>
+            <TagSelector setTags={setTags}/>
+          </LabelField>
+        }
         <LabelField>
           <label htmlFor='input-temp'>Temperature</label>
           <input name='input-temp' type='range' min='0' max='1' step='0.01' onChange={e => setTemp(e.target.value)} />
