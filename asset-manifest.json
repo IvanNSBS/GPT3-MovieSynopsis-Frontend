@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.js": "/Gimme-A-New-Oscar/static/js/main.665042d5.chunk.js",
-    "main.js.map": "/Gimme-A-New-Oscar/static/js/main.665042d5.chunk.js.map",
+    "main.js": "/Gimme-A-New-Oscar/static/js/main.d902bc20.chunk.js",
+    "main.js.map": "/Gimme-A-New-Oscar/static/js/main.d902bc20.chunk.js.map",
     "runtime-main.js": "/Gimme-A-New-Oscar/static/js/runtime-main.1ba8f574.js",
     "runtime-main.js.map": "/Gimme-A-New-Oscar/static/js/runtime-main.1ba8f574.js.map",
-    "static/js/2.fe3bd92f.chunk.js": "/Gimme-A-New-Oscar/static/js/2.fe3bd92f.chunk.js",
-    "static/js/2.fe3bd92f.chunk.js.map": "/Gimme-A-New-Oscar/static/js/2.fe3bd92f.chunk.js.map",
+    "static/js/2.d62542f8.chunk.js": "/Gimme-A-New-Oscar/static/js/2.d62542f8.chunk.js",
+    "static/js/2.d62542f8.chunk.js.map": "/Gimme-A-New-Oscar/static/js/2.d62542f8.chunk.js.map",
     "index.html": "/Gimme-A-New-Oscar/index.html",
-    "static/js/2.fe3bd92f.chunk.js.LICENSE.txt": "/Gimme-A-New-Oscar/static/js/2.fe3bd92f.chunk.js.LICENSE.txt"
+    "static/js/2.d62542f8.chunk.js.LICENSE.txt": "/Gimme-A-New-Oscar/static/js/2.d62542f8.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.1ba8f574.js",
-    "static/js/2.fe3bd92f.chunk.js",
-    "static/js/main.665042d5.chunk.js"
+    "static/js/2.d62542f8.chunk.js",
+    "static/js/main.d902bc20.chunk.js"
   ]
 }
