@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import LoadingScreen from './Loading';
 import { SpecificGenerator } from "./GeneratorFetch";
+import { AiOutlineQuestionCircle } from 'react-icons/ai';
 
 import {
   AppContainer,
@@ -9,6 +10,7 @@ import {
   Output,
   SendButton,
   TitleInput,
+  TooltipWrapper,
 } from './App.styles';
 
 import ReactTooltip from "react-tooltip";
@@ -62,24 +64,38 @@ const App: React.FC = function ()
         <AppTabs onClick={setModel} toggleTags={setShowTags}/>
         
         <LabelField>
-          <InputLabel htmlFor='apikey'>API Key</InputLabel>
+          <TooltipWrapper>
+            <AiOutlineQuestionCircle data-for='apikey-tp' data-tip='Collab API Key.We provided it over Discord!'/>
+            <InputLabel htmlFor='apikey'>API Key</InputLabel>
+            <ReactTooltip place="top" type="dark" effect="solid" id="apikey-tp"/>
+          </TooltipWrapper>
           <TitleInput name='apikey' type='text' value={apiKey} onChange={ e => setApiKey(e.target.value) }/>
         </LabelField>
         <LabelField>
-          <InputLabel htmlFor='input-prompt' data-for="title" data-tip="Movie Title">Title</InputLabel>
-          <ReactTooltip place="top" type="dark" effect="float" id="title"/>
+          <TooltipWrapper>
+            <AiOutlineQuestionCircle data-for="title" data-tip="Title of the movie you want to generate"/>
+            <InputLabel htmlFor='input-prompt'>Title</InputLabel>
+            <ReactTooltip place="top" type="dark" effect="solid" id="title"/>
+          </TooltipWrapper>
           <TitleInput name='input-prompt' type='text' value={prompt} onChange={ e => setPrompt(e.target.value) }/>
         </LabelField>
         { showTags &&
           <LabelField>
-            <InputLabel htmlFor='tags'>Tags</InputLabel>
+            <TooltipWrapper>
+              <AiOutlineQuestionCircle data-for='tag-tp' data-tip='Movie tags. Can select up to 3'/>
+              <InputLabel htmlFor='tags'>Tags</InputLabel>
+              <ReactTooltip data-multiline={true} place="top" type="dark" effect="solid" id="tag-tp"/>
+            </TooltipWrapper>
             <TagSelector setTags={setTags}/>
           </LabelField>
         }
         <LabelField>
-          <InputLabel htmlFor='input-temp'>Temperature</InputLabel>
-          <TitleInput name='input-temp' type='range' min='0' max='1' step='0.01' onChange={e => setTemp(e.target.value)} />
-          <label>{ temp }</label>
+          <TooltipWrapper>
+            <AiOutlineQuestionCircle data-for='temp-tp' data-tip='Defines how creative the generator will try to be'/>
+            <InputLabel htmlFor='input-temp'>Temperature</InputLabel>
+            <ReactTooltip place="top" type="dark" effect="solid" id="temp-tp"/>
+          </TooltipWrapper>
+          <TitleInput name='input-temp' type='range' min='0' max='1' step='0.01' onChange={e=>setTemp(e.target.value)}/>
         </LabelField>
     
       </div>

@@ -16,8 +16,15 @@ const LabelField = styled.div`
     padding-bottom: 8px;
 `;
 
+const TooltipWrapper = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+`
+
 const InputLabel = styled.label`
-    margin-right: 25px;
+    margin-right: 10px;
+    margin-left: 10px;
 `;
 
 const Output = styled.div`
@@ -64,4 +71,4 @@ const SendButton = styled.button`
     }
 `;
 
-export { AppContainer, LabelField, Output, TitleInput, InputLabel, SendButton }
+export { AppContainer, LabelField, Output, TitleInput, InputLabel, SendButton, TooltipWrapper }
