@@ -65,7 +65,7 @@ const App: React.FC = function ()
         
         <LabelField>
           <TooltipWrapper>
-            <AiOutlineQuestionCircle data-for='apikey-tp' data-tip='Collab API Key.We provided it over Discord!'/>
+            <AiOutlineQuestionCircle data-for='apikey-tp' data-tip='Collab API Key. We provided it over Discord!'/>
             <InputLabel htmlFor='apikey'>API Key</InputLabel>
             <ReactTooltip place="top" type="dark" effect="solid" id="apikey-tp"/>
           </TooltipWrapper>
