@@ -100,7 +100,7 @@ const App: React.FC = function ()
     
       </div>
 
-      <SendButton onClick={post}>Gimme Me A New Oscar</SendButton>
+      <SendButton onClick={post}>Gimme A New Oscar</SendButton>
       
       <Output>
         {generating === 1
