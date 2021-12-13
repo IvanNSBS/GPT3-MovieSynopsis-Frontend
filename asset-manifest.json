@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.js": "/Gimme-A-New-Oscar/static/js/main.fab6affd.chunk.js",
-    "main.js.map": "/Gimme-A-New-Oscar/static/js/main.fab6affd.chunk.js.map",
+    "main.js": "/Gimme-A-New-Oscar/static/js/main.2d0e4e3c.chunk.js",
+    "main.js.map": "/Gimme-A-New-Oscar/static/js/main.2d0e4e3c.chunk.js.map",
     "runtime-main.js": "/Gimme-A-New-Oscar/static/js/runtime-main.1ba8f574.js",
     "runtime-main.js.map": "/Gimme-A-New-Oscar/static/js/runtime-main.1ba8f574.js.map",
     "static/js/2.32d35b4e.chunk.js": "/Gimme-A-New-Oscar/static/js/2.32d35b4e.chunk.js",
@@ -12,6 +12,6 @@
   "entrypoints": [
     "static/js/runtime-main.1ba8f574.js",
     "static/js/2.32d35b4e.chunk.js",
-    "static/js/main.fab6affd.chunk.js"
+    "static/js/main.2d0e4e3c.chunk.js"
   ]
 }
