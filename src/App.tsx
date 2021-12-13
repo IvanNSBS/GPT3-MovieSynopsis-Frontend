@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import LoadingScreen from './Loading';
 import { SpecificGenerator } from "./GeneratorFetch";
 
@@ -7,6 +7,7 @@ import {
   InputLabel,
   LabelField,
   Output,
+  SendButton,
   TitleInput,
 } from './App.styles';
 
@@ -46,10 +47,6 @@ const App: React.FC = function ()
     SpecificGenerator(props);
   }
 
-  useEffect(() => {
-    setApiKey(process.env.REACT_APP_COLAB_KEY);
-  }, []);
-
   let output = '';
   if (generating === 1)
     output = 'Gerando...'
@@ -64,6 +61,10 @@ const App: React.FC = function ()
       <div>
         <AppTabs onClick={setModel} toggleTags={setShowTags}/>
         
+        <LabelField>
+          <InputLabel htmlFor='apikey'>API Key</InputLabel>
+          <TitleInput name='apikey' type='text' value={apiKey} onChange={ e => setApiKey(e.target.value) }/>
+        </LabelField>
         <LabelField>
           <InputLabel htmlFor='input-prompt' data-for="title" data-tip="Movie Title">Title</InputLabel>
           <ReactTooltip place="top" type="dark" effect="float" id="title"/>
@@ -83,7 +84,7 @@ const App: React.FC = function ()
     
       </div>
 
-      <button onClick={post}>Gimme Me A New Oscar</button>
+      <SendButton onClick={post}>Gimme Me A New Oscar</SendButton>
       
       <Output>
         {generating === 1

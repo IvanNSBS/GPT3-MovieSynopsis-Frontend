@@ -18,19 +18,12 @@ const LabelField = styled.div`
 
 const InputLabel = styled.label`
     margin-right: 25px;
-`
+`;
 
 const Output = styled.div`
     padding: 20px 5%;
     font-size: 1.5em;
 `;
-
-const TabsWrapper = styled.div`
-    width: 100%;
-    padding-bottom: 20px;
-    display: flex;
-    align-items: flex-start;
-`
 
 const TitleInput = styled.input`
     width: 340px;
@@ -39,10 +32,36 @@ const TitleInput = styled.input`
     border: 1px solid #93999e;
     border-radius: 4px;
     height: 38px;
-`
+`;
 
-const TabButton = styled.button`
 
-`
+const selectedColor = "#c4c7d1"
 
-export { AppContainer, LabelField, Output, TabsWrapper, TabButton, TitleInput, InputLabel }
+const SendButton = styled.button`
+    border: 1px solid gray;
+    border-radius: 4px;
+    padding: 8px 16px;
+    height: 40px;
+
+    width: auto;
+    font-size: 1.1em;
+    background-color: white;
+
+    text-align: center;
+    vertical-align: middle;
+
+    transition: all 0.2s ease-out;
+
+    &:hover
+    {
+        cursor: pointer;
+        background-color: #c4c7d17b;
+    }
+
+    &:active
+    {
+        background-color: ${selectedColor}
+    }
+`;
+
+export { AppContainer, LabelField, Output, TitleInput, InputLabel, SendButton }
